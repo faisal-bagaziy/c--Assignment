@@ -7,6 +7,7 @@ using namespace std;
 
 int main() {
 
+	start:
       srand(time(0));
 	  int number;
       number = rand() % 10 + 1;
@@ -16,18 +17,13 @@ int main() {
 	  int tries=1;
 	  char answer;
 	  
-	  answer='y';
-	while(answer != 'n'&& answer=='y'){
-				  		 
-				  		
-					  
-		
-	  while(guess!=number){
 	  
 	  
-				
-	  		
-			  
+
+
+
+	 while(guess!=number){
+	  
 	  			if(guess>number){
 	  				cout<<"your guess is too high\n enter another guess\n ";
 	  				cin>>guess;
@@ -43,20 +39,29 @@ int main() {
 
 
 
-				  if(guess==number){
+
+				 if(guess==number){
 				  	cout<<"you won and you take "<<tries<<" tries to do it\n  ";
+				  	
 				  }
 				  
 				  	cout<<"do you want to play again? y or n"<<endl;
+				    answer:
 				  	cin>>answer;
 			
 				  	
-				  if(answer='n' && answer!='y'){
-					cout<<"thanks for playing";
+				  if(answer=='y'||answer=='Y' ){
+						goto start;
 						}
+			    else if(answer=='n'||answer=='N'){
+						cout<<"thank you for playing"<<endl;
+					}
+					else{
+						cout << "Please press either Y or N." << endl;
+						goto answer;
+					}
+						
 				  	
-}
-						  
 
 				  return 0;
 }
